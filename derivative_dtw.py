@@ -68,3 +68,24 @@ def __dtw(x, y, window, dist):
             print("Getting IndexError here", D[i, j])
     path.reverse()
     return (D[len_x - 1, len_y - 1][0], path)
+
+
+def derivative(x, index):
+    #try:
+    if len(x) == 0:
+        raise Exception("Incorrect input. Must be an array with more than 1 element.")
+    elif index == len(x) - 1:
+        print("problem")
+        return 0
+    #print("val", ((x[index] - x[index - 1]) + ((x[index + 1] - x[index - 1])/2))/2)
+    return ((x[index] - x[index - 1]) + ((x[index + 1] - x[index - 1])/2))/2
+
+def derivative_metric(x, y, x_index, y_index):
+    #print("inside metrc", x, y, x_index, y_index)
+    if x_index == 0 or y_index == 0:
+        print("problem")
+    elif x_index == len(x) or y_index == len(y):
+        print("problem")
+    else:
+        #print("value", (derivative(x, x_index) - derivative(y, y_index))**2)
+        return (derivative(x, x_index) - derivative(y, y_index))**2
