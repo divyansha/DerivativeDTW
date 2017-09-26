@@ -23,14 +23,7 @@ def dtw(x, y, dist=None):
             the approximate distance between the 2 time series
         path : list
             list of indexes for the inputs x and y
-        Examples
-        --------
-        >>> import numpy as np
-        >>> import fastdtw
-        >>> x = np.array([1, 2, 3, 4, 5], dtype='float')
-        >>> y = np.array([2, 3, 4], dtype='float')
-        >>> fastdtw.dtw(x, y)
-        (2.0, [(0, 0), (1, 0), (2, 1), (3, 2), (4, 2)])
+        
     '''
     x, y, dist = __prep_inputs(x, y, dist)
     return __dtw(x, y, None, dist)
